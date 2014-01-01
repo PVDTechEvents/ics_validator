@@ -1,6 +1,12 @@
 # IcsValidator
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/mattgillooly/ics_validator.png?branch=master)](https://travis-ci.org/mattgillooly/ics_validator)
+
+Validate iCalendar feeds by URL, using icalvalid.cloudapp.net
+
+Used by [http://pvdtechevents.com](http://pvdtechevents.com) to validate its generated feed.
+
+TODO: Support validating iCalendar snippets and files.
 
 ## Installation
 
@@ -18,7 +24,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+IcsValidator.valid_feed?("http://example.com/valid_feed.ics") # => true
+IcsValidator.valid_feed?("http://example.com/invalid_feed.ics") # => false
+```
 
 ## Contributing
 
