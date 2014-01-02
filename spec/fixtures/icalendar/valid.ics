@@ -1,0 +1,58 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ddaysoftware.com//NONSGML DDay.iCal 1.0//EN
+BEGIN:VTIMEZONE
+TZID:Eastern Standard Time
+BEGIN:STANDARD
+DTSTART:20131102T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYHOUR=2;BYMINUTE=0;BYMONTH=11
+TZNAME:Eastern Standard Time
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20130301T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYHOUR=2;BYMINUTE=0;BYMONTH=3
+TZNAME:Eastern Daylight Time
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CATEGORIES:art
+CATEGORIES:ksc
+CATEGORIES:university
+DESCRIPTION:2013–14 Redfern Choreographer-in-Residence Rebecca Stenn has pe
+ rformed and toured throughout the world as a principal dancer with Momix a
+ nd Pilobolus. Stenn creates distinctive dance pieces and solo works that c
+ hallenge the unique ways that live music and dance\ncommunicate and intera
+ ct.
+DTEND;TZID=Eastern Standard Time:20140127T213000
+DTSTAMP:20140102T024133Z
+DTSTART;TZID=Eastern Standard Time:20140127T193000
+LOCATION:
+SEQUENCE:0
+SUMMARY:Rebecca Stenn Modern Dance
+UID:090c4d49-0069-45ee-8190-5f129e73a265
+URL:http://www.keene.edu/news/events/detail/1232/
+END:VEVENT
+BEGIN:VEVENT
+CATEGORIES:art
+CATEGORIES:ksc
+CATEGORIES:theater
+CATEGORIES:university
+DESCRIPTION:In their premiere American tour\, this hilarious circus\ntroupe
+  features log-walking\, spoon-clacking\, hatchet-juggling\, clog-dancing\,
+  and even hijinks on an outhouse! A smorgasbord of family fun based on the
+  logging tradition with troupers performing daring knife tricks and acroba
+ tic feats to the toe-tapping sounds of Quebecois folk music.
+DTEND;TZID=Eastern Standard Time:20140201T160000
+DTSTAMP:20140102T024133Z
+DTSTART;TZID=Eastern Standard Time:20140201T140000
+LOCATION:
+SEQUENCE:0
+SUMMARY:Cirque Alfonse in "Timber!"
+UID:0c66f74f-b253-43dd-a473-60895333b498
+URL:http://www.keene.edu/news/events/detail/1233/
+END:VEVENT
+END:VCALENDAR
