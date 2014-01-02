@@ -1,22 +1,28 @@
 require "ics_validator/version"
-require "ics_validator/feed_validator"
-require "ics_validator/snippet_validator"
-require "ics_validator/file_validator"
+require "ics_validator/web_session"
+require "ics_validator/api_response"
+require "rest-client"
 
 # Use http://icalvalid.cloudapp.net/ to validate iCalendar content.
 #
 module IcsValidator
 
   def self.valid_feed?(url)
-    FeedValidator.new(url).valid?
+    ApiResponse.build(
+      RestClient.get("http://icalvalid.cloudapp.net/?uri=#{url}")
+    ).valid?
   end
 
   def self.valid_snippet?(snippet)
-    SnippetValidator.new(snippet).valid?
+    session = WebSession.new
+    session.validate_snippet(snippet)
+    session.get_api_response.valid?
   end
 
   def self.valid_file?(path)
-    FileValidator.new(path).valid?
+    session = WebSession.new
+    session.validate_file(File.expand_path(path))
+    session.get_api_response.valid?
   end
 
 end
