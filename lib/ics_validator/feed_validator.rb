@@ -1,5 +1,5 @@
-require 'nokogiri'
 require 'rest-client'
+require 'ics_validator/api_response'
 
 module IcsValidator
 
@@ -12,28 +12,17 @@ module IcsValidator
     end
 
     def valid?
-      if r = validation_results
-        results = r.children.map{|c| c.attr(:result)}
-        results.compact.uniq == ['pass']
-      end
+      request_validation.valid?
     end
 
   private
 
-    def validator_url
-      "http://icalvalid.cloudapp.net/?uri=#{@feed_url}"
-    end
-
-    def validator_response
-      RestClient.get(validator_url)
-    end
-
-    def validator_response_doc
-      Nokogiri::XML(validator_response)
-    end
-
-    def validation_results
-      validator_response_doc.at('validationResults')
+    def request_validation
+      ApiResponse.build(
+        RestClient.get(
+          "http://icalvalid.cloudapp.net/?uri=#{@feed_url}"
+        )
+      )
     end
 
   end

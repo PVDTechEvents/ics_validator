@@ -1,4 +1,5 @@
 require 'capybara/poltergeist'
+require 'ics_validator/api_response'
 
 module IcsValidator
 
@@ -11,13 +12,12 @@ module IcsValidator
     end
 
     def valid?
-      results = validation_results.children.map{|c| c.attr(:result)}
-      results.compact.uniq == ['pass']
+      request_validation.valid?
     end
 
   private
 
-    def validation_results
+    def request_validation
       session = Capybara::Session.new(:poltergeist)
 
       session.driver.headers = { 'User-Agent' =>
@@ -29,14 +29,13 @@ module IcsValidator
 
       session.click_button "Content_btnValidateSnippet"
 
-      results = nil
+      response = nil
 
       Capybara.send(:timeout, 20, session.driver) do
-        doc = Nokogiri::XML(session.html)
-        results = doc.at('validationResults')
+        response = ApiResponse.build(session.html)
       end
 
-      results
+      response
     end
 
   end
