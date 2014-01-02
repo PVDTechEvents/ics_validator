@@ -11,17 +11,13 @@ module IcsValidator
     end
 
     def valid?
-      if r = validation_results
-        results = validation_results.children.map{|c| c.attr(:result)}
-        results.compact.uniq == ['pass']
-      else
-        raise "unexpected markup"
-      end
+      results = validation_results.children.map{|c| c.attr(:result)}
+      results.compact.uniq == ['pass']
     end
 
   private
 
-    def validator_response
+    def validation_results
       session = Capybara::Session.new(:poltergeist)
 
       session.driver.headers = { 'User-Agent' =>
@@ -33,15 +29,14 @@ module IcsValidator
 
       session.click_button "Content_btnValidateSnippet"
 
-      session.html
-    end
+      results = nil
 
-    def validator_response_doc
-      Nokogiri::XML(validator_response)
-    end
+      Capybara.send(:timeout, 20, session.driver) do
+        doc = Nokogiri::XML(session.html)
+        results = doc.at('validationResults')
+      end
 
-    def validation_results
-      validator_response_doc.at('validationResults')
+      results
     end
 
   end
