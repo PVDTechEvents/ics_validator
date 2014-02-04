@@ -1,9 +1,9 @@
 # IcsValidator
 
-[![Build Status](https://travis-ci.org/mattgillooly/ics_validator.png?branch=master)](https://travis-ci.org/mattgillooly/ics_validator)
+[![Build Status](https://travis-ci.org/PVDTechEvents/ics_validator.png?branch=master)](https://travis-ci.org/PVDTechEvents/ics_validator)
 [![Gem Version](https://badge.fury.io/rb/ics_validator.png)](http://badge.fury.io/rb/ics_validator)
-[![Code Climate](https://codeclimate.com/github/mattgillooly/ics_validator.png)](https://codeclimate.com/github/mattgillooly/ics_validator)
-[![Coverage Status](https://coveralls.io/repos/mattgillooly/ics_validator/badge.png)](https://coveralls.io/r/mattgillooly/ics_validator)
+[![Code Climate](https://codeclimate.com/github/PVDTechEvents/ics_validator.png)](https://codeclimate.com/github/PVDTechEvents/ics_validator)
+[![Coverage Status](https://coveralls.io/repos/PVDTechEvents/ics_validator/badge.png)](https://coveralls.io/r/PVDTechEvents/ics_validator)
 
 Validate iCalendar content, using [http://icalvalid.cloudapp.net/](http://icalvalid.cloudapp.net/).
 If this gem reports a failed validation, your best bet is to manually re-validate your content via the website for more actionable feedback.
